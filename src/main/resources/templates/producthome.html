@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<br>
+<div class="row row-cols-4 ">
+
+<a th:href="@{/showCart}" class="col btn btn-outline-success">GO TO CART</a>
+<div class="col"></div>
+<div class="col"></div>
+<a th:href="@{/logout}" class="col btn btn-outline-danger">Log Out</a>
+</div>
+<br>
+<hr>
+<h1> Product List</h1>
+<hr>
+<table class="table table-primary table-stripped">
+<tr>
+<th>Product Id</th>
+<th>Product Name</th>
+<th>Product Category</th>
+<th>Product Price</th>
+<th>Actions</th>
+</tr>
+
+
+<tr th:each="product:${productList}">
+
+<td th:text ="${product.prodId}"> </td>
+<td th:text="${product.productName}"></td>
+<td th:text="${product.productCategory}"></td>
+<td th:text="${product.price}"></td>
+
+<td><a th:href="@{/addController/{prodId}(prodId=${product.prodId})}" class="btn btn-outline-primary">Add To Cart</a></td>
+</tr>
+
+
+</table>
+</div>
+
+</body>
+</html>
+
+
+<!--
+int prodId;
+	String productName;
+	String productCategory;
+	float price;-->

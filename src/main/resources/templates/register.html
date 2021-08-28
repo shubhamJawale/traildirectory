@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+<br><br>
+<div class="contianer">
+<hr>
+<h2>Register As New Costumer</h2>
+<hr>
+<div>
+<form class="col g-1" th:object="${user}" method="post" th:action="@{/saveUser}">
+  <div class="col-md-8">
+    <label for="validationServer01" class="form-label" >User name</label>
+    <input type="text" class="form-control " id="validationServer01" th:field="*{userName}" required>
+   
+  </div>
+  <div class="col-md-8">
+    <label for="validationServer02" class="form-label"  >Email</label>
+    <input type="email" class="form-control " id="validationServer02"  th:field="*{email}" required>
+    
+  </div>
+  <div class="col-md-8">
+    <label for="validationServer03" class="form-label"  >Mobile No</label>
+    <input type="tel" class="form-control " id="validationServer03" th:field="*{mobileNo}"  required>
+   
+  </div>
+  
+  <div class="col-md-8">
+    <label for="validationServer04" class="form-label" >Password</label>
+    <input type="password" class="form-control " id="validationServer04"  th:field="*{password}" required>
+    
+  </div>
+   <br>
+ 
+  <div class="col-md-12">
+    <input class="btn btn-outline-success" type="submit" value="Register"/>
+  </div>
+  
+ 
+</form>
+</div>
+</body>
+</html>

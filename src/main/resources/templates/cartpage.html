@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<br>
+
+<div class="container">
+<div class="row row-cols-4">
+<a th:href="@{/checkout}" class=" col btn btn-outline-info">CheckOut</a>
+<div class="col"></div>
+<div class="col"></div>
+<a th:href="@{/homepage}" class=" col btn btn-outline-warning">GO Back</a>
+
+</div>
+<br>
+<br>
+<table class="table table-info table-striped">
+<tr>
+<th>Cart Item Id</th>
+<th>Product Name</th>
+
+<th>Product Price</th>
+<th>Product Quantity</th>
+<th>Product Total Price</th>
+<th>Actions</th>
+</tr>
+
+
+<tr th:each="product:${carLlist}">
+<td th:text ="${product.cartId}"> </td>
+<td th:text="${product.productName}"></td>
+<td th:text="${product.price}"></td>
+<td th:text="${product.Quantity}"></td>
+<td th:text="${product.totalprice}"></td>
+<td><a th:href="@{/deletecart/{cartId}(cartId=${product.cartId})}" class="btn btn-outline-danger"> Delete</a>
+<a th:href="@{/updatecart/{cartId}(cartId=${product.cartId})}" class="btn btn-outline-success">Enter Qauntity Manully</a></td>
+
+</tr>
+
+
+</table>
+</div>
+</body>
+</html>
+<!--
+int cartId;
+	String productName;
+	float price;
+	int Quantity;
+	float totalprice;-->

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1>Update Product Quantity</h1>
+<a th:href="@{/homepage}" class=" col btn btn-outline-dark">GO Back</a>
+	<form th:action="@{/update}" method="post"  th:object="${cart}" >
+	<h4 th:text="${cart.productName}"></h4>
+	<input type="text" class="form-control " th:field="*{Quantity}"/>
+	<input type="hidden" th:field="*{cartId}"/>
+	<input type="hidden" th:field="*{productName}"/>
+	<input type="hidden" th:field="*{totalprice}"/>
+	<input type="hidden" th:field="*{price}"/>
+	<br>
+	<input type="submit" value="Update Quantity" class="btn btn-outline-info "/>
+	
+
+
+	</form>
+</div>
+</body>
+</html>
